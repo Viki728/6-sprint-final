@@ -13,7 +13,8 @@ import (
 
 // HandlerIndex возвращает index.html
 func HandlerIndex(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "../index.html")
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	http.ServeFile(w, r, "index.html")
 }
 
 // HandlerUpload принимает файл, обрабатывает и возвращает результат
